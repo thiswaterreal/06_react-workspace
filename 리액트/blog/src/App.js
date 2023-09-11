@@ -57,13 +57,13 @@ function App() {
           글제목.map(function(a, i){ // a : 값 자체, i : 인덱스
             return (
               <div className='list'>
-                <h4 onClick={()=>{ 
-                  setIndex(i);
-                  setModal(!modal) }}>{글제목[i]}<span onClick={ ()=>{
+                <h4 onClick={()=>{ setIndex(i), setModal(!modal) }}>
+                    {글제목[i]}<span onClick={ ()=>{
                     let copy = [...따봉];
                     copy[i] = copy[i] + 1;
                     따봉변경(copy);
-                } }>👍🏻</span> {따봉[i]} </h4>
+                    } }>👍🏻</span> {따봉[i]}
+                </h4>
                 <p>9월 11일 발행</p>
               </div>
             )
@@ -98,7 +98,7 @@ function Modal(props) {
   return(
     <>
       <div className='modal' style={{background : props.color}}>
-        
+
         <h4>{props.글제목[props.인덱스]}</h4>
        
         <p>날짜</p>
