@@ -7,9 +7,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
-  
-
-
   let [shoes] = useState(data);
 
   return (
@@ -34,7 +31,8 @@ function App() {
             })
           }
           </>
-        }></Route>
+        }>
+        </Route>
         <Route path="/detail" element={<div>상세페이지</div>}></Route>
         <Route path="/about" element={<div>어바웃페이지</div>}></Route>
       </Routes>
