@@ -13,9 +13,8 @@ function App() {
   //let [따봉, 따봉변경] = useState(0);
   let [따봉, 따봉변경] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
-
   let [index, setIndex] = useState(0); 
-
+  let [입력값, 입력값변경] = useState('');
 
   return (
     <div className="App">
@@ -57,32 +56,49 @@ function App() {
           글제목.map(function(a, i){ // a : 값 자체, i : 인덱스
             return (
               <div className='list'>
-                <h4 onClick={()=>{ setIndex(i), setModal(!modal) }}>
-                    {글제목[i]}<span onClick={ ()=>{
+
+                <h4 onClick={()=>{ setIndex(i); setModal(!modal) }}> {글제목[i]}
+                    <span onClick={ (e)=>{
+                    e.stopPropagation(); // 상위 html 로 퍼지는 이벤트 버블링을 막는 코드
                     let copy = [...따봉];
                     copy[i] = copy[i] + 1;
                     따봉변경(copy);
-                    } }>👍🏻</span> {따봉[i]}
+                    }}>👍🏻</span> {따봉[i]}
                 </h4>
+
                 <p>9월 11일 발행</p>
+
+                <button onClick={()=>{
+                  let copy = [...글제목]
+                  copy.splice(i, 1);
+                  글제목변경(copy);
+                }}>삭제</button>
+
               </div>
             )
           })
         }
 
+        {/* <button onClick={()=>{ setIndex(0) }}>글제목0</button>
+        <button onClick={()=>{ setIndex(1) }}>글제목1</button>
+        <button onClick={()=>{ setIndex(2) }}>글제목2</button> */}
+
+
+        <input className='inputText' onChange={(e)=>{ 
+          입력값변경(e.target.value);
+          console.log(입력값);
+        }}/>
+        
+        <button onClick={()=>{
+            let copy = [...글제목]
+            copy.unshift(입력값);
+            글제목변경(copy);
+        }}>글추가</button>
+        
+
 
         {
-          modal==true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} 인덱스={index}
-                                onClick={ ()=>{
-                                  let copy = [...글제목];
-                                  copy[0] = '여자 코트 추천';
-                                  글제목변경(copy);
-                                } }
-                                
-                                
-                                /> : null
-                                
-                                
+          modal==true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} index={index}/> : null                    
         }
 
         
@@ -99,7 +115,7 @@ function Modal(props) {
     <>
       <div className='modal' style={{background : props.color}}>
 
-        <h4>{props.글제목[props.인덱스]}</h4>
+        <h4>{props.글제목[props.index]}</h4>
        
         <p>날짜</p>
         <p>상세내용</p>
