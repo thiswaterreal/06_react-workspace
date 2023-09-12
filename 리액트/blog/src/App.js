@@ -84,7 +84,7 @@ function App() {
         <button onClick={()=>{ setIndex(2) }}>글제목2</button> */}
 
 
-        <input className='inputText' onChange={(e)=>{ 
+        <input onChange={(e)=>{ 
           입력값변경(e.target.value);
           console.log(입력값);
         }}/>
