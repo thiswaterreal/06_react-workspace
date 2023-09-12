@@ -61,7 +61,7 @@ function App() {
         입력값변경(e.target.value);
         console.log(입력값);
       }}></input>
-      
+
       <button onClick={()=>{
         let copy = [...글제목]
         copy.unshift(입력값);
@@ -87,6 +87,7 @@ function Modal(props) {
   )
 }
 
+// *** 새로운 컨포넌트에서 해당 state 값을 쓰고싶으면 첫번째작명 받아서 쓰지만, 여기에서도 뭔가 이벤트핸들러를 걸어서 state를 바꿔서 사용해야한다면 두번째작명을 받아서 써야함
 
 // let [따봉, 따봉변경] = useState(0);
 // <span onClick={()=>{따봉변경(따봉+1)}}>👍🏻</span> {따봉}

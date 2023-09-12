@@ -45,7 +45,7 @@ function App() {
 function Card(props){
   return(
     <div>
-      <img src={`http://lovesykkkk.github.io/shoes${props.i + 1}.jpg`} width="30%"/>
+      <img src={`http://lovesykkkk.github.io/shoes${props.i+1}.jpg`} width="30%"/>
       <h4>{props.shoes[props.i].title}</h4>
       <p>{props.shoes[props.i].content}</p>
       <p>{props.shoes[props.i].price}</p>
