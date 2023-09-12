@@ -6,6 +6,7 @@ import {a,b} from './data.js';
 // data.js 에서 만든거 import하기
 import data from './data.js';
 import { useState } from 'react';
+// (터미널에서)npm install react-router-dom@6
 import { Routes, Route, Link } from 'react-router-dom';
 
 

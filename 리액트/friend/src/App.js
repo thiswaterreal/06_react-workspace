@@ -15,7 +15,6 @@ function App() {
     hobby: '',
     birthday: ''
   });
-  
 
   let onChange = (e) => {
     let { value, name } = e.target; 
@@ -64,7 +63,8 @@ function App() {
 
               </table>
             </>
-          }></Route>
+          }>
+          </Route>
 
           <Route path="/plus" element={
             <>
@@ -82,15 +82,11 @@ function App() {
                 setFriend(copy);
 
                 navagate('/');
-
               }}>추가</button>
             </>
-          
-        
-        
-          }></Route>
+          }>
+          </Route>
         </Routes>
-        
 
       </>  
     </div>
