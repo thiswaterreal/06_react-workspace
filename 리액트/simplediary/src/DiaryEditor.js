@@ -2,7 +2,7 @@ import { useRef, useState } from "react"; // useRef : 조건 안맞게 작성시
 
 // 컴포넌트 함수를 변수에 담아 쓸 수도 있음
 // const DiaryEditor = ()=>{};
-const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
+const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수. 저장할 때 써야하니까 props등록 대신 {onCreate}등록
 
     //const [author, setAuthor] = useState("");
     //const [content, setContent] = useState("");
@@ -41,9 +41,9 @@ const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
             contentInput.current.focus();
             return;
         }
-        onCreate(state.author, state.content, state.emotion); //App.js onCreate로
+        onCreate(state.author, state.content, state.emotion); //받은 onCreate함수 호출해서 입력값 적용시켜 보내면 => App.js에서 일기데이터 만들어짐
         alert("저장 성공!!");
-        setState({ // 성공했으면 비워두기
+        setState({ // 성공했으면 비워두기(초기화)
             author:"",
             content:"",
             emotion:3,

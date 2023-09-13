@@ -1,6 +1,6 @@
 import DiaryItem from "./DiaryItem";
 
-const DiaryList = ({ onDelete, diaryList })=>{ // props 대신 {diaryList} /(부모한테 받은거)
+const DiaryList = ({ onDelete, diaryList })=>{ // props 대신 {diaryList}==data, {onDelete}함수 등록 |(부모한테 받고, 자식한테 전달)
     console.log(diaryList);
     return(
         <div className="DiaryList">
@@ -23,7 +23,6 @@ const DiaryList = ({ onDelete, diaryList })=>{ // props 대신 {diaryList} /(부
 
                             {/* map 돌릴때, F12에 key값 똑같다고 난리부르스 치면 => key값 주기(보통 해당번호id로 줌) */}
                             <DiaryItem key={it.id} {...it} onDelete={onDelete}/>
-
                             </>
                         )
                     })
