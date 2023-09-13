@@ -1,6 +1,7 @@
-const DiaryItem = ({author, content, created_date, emotion, id, onDelete})=>{ // props 대신 이런식으로도 가능(쓰고자 하는 것들 나열) 그럼 props. 계속 안적어줘도 됨
-    return(             // DiaryList 에서 받아온것 [...it]
+const DiaryItem = ({author, content, created_date, emotion, id, onDelete})=>{ // props 대신 {넘긴거}이런식으로도 가능(쓰고자 하는 것들 나열) 그럼 props. 계속 안적어줘도 됨
+    return(             // DiaryList 에서 받아온것 [...it], onDelete
         <div className="DiaryItem">
+
             <div className="info">
                 <span>작성자 : {author} | 감정점수 : {emotion}</span>
                 <br/>
@@ -12,6 +13,7 @@ const DiaryItem = ({author, content, created_date, emotion, id, onDelete})=>{ //
                     onDelete(id); //확인 누르면 App.js에 있는 onDelete로
                 }
             }}>삭제</button>
+
         </div>
     )
 }

@@ -31,6 +31,7 @@ import DiaryList from './DiaryList';
 
 function App() {
 
+  // 일기에 대한 state (모든 곳에 쓸 수 있도록 App에 만드루)
   const [data, setData] = useState([]);
 
   const dataId = useRef(0);

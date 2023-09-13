@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"; // useRef : 조건 안맞게 작성시, focus 주기 위해
 
-
+// 컴포넌트 함수를 변수에 담아 쓸 수도 있음
+// const DiaryEditor = ()=>{};
 const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
 
     //const [author, setAuthor] = useState("");
@@ -12,7 +13,7 @@ const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
     const [state, setState] = useState({
         author:"",
         content:"",
-        emotion:1,
+        emotion:3,
     });
 
 
@@ -20,9 +21,9 @@ const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
         //console.log(e.target.value); //이수진
         //console.log(e.target.name);  //author
 
-        setState({
-            ...state,                           // 일단 전체 촥 뿌려주고( 모두 초기 빈 문자열 상태),
-            [e.target.name]:e.target.value,     // author건드린 경우, '입력값의 [키]:벨류' 로 덮어씌움   //[author]:이수진
+        setState({                              // (state값 바꿔주기)
+            ...state,                           // 일단 기존 전체값 촥 뿌려주고( 모두 초기 빈 문자열 상태),
+            [e.target.name]:e.target.value,     // 이벤트 발생한 그 값만 '입력값의 [키]:벨류' 로 한번 더 덮어씌움   // author건드린 경우, [author]:이수진
         })
     }
 
@@ -45,7 +46,7 @@ const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
         setState({ // 성공했으면 비워두기
             author:"",
             content:"",
-            emotion:1,
+            emotion:3,
         })
     }
 
@@ -55,17 +56,17 @@ const DiaryEditor = ({onCreate})=>{ //App.js 에서 준 함수
             <div>
                 <input
                     name="author"
-                    value={state.author}        // 처음 : "" (이벤트발생 후 재랜더링됨) 나중 : "이수진"
-                    onChange={handleChangeState}
+                    value={state.author}            // 처음 : "" (이벤트발생 후 재랜더링됨) 나중 : "이수진"
+                    onChange={handleChangeState}    // onChange 발생할때마다 handleChangeState 호출
                     ref={authorInput}
                 />
             </div>
             <div>
                 <textarea 
-                    name="content"
-                    value={state.content}
+                    name="content"                  // setState 할라고 필요. [name]:value
+                    value={state.content}           
                     onChange={handleChangeState}
-                    ref={contentInput}
+                    ref={contentInput}              // 속성중에 ref가 있음. 여기에 연결
                 />
             </div>
             <div>
