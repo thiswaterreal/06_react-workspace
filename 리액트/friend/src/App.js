@@ -72,10 +72,10 @@ function App() {
               <Link to="/plus">친구추가하기</Link>/
               <Link to="/">메인으로 가기</Link>
               <div>친구추가</div>
-              번호 : <input name='num' onChange={onChange}  type='text'></input> <br/>
-              이름 : <input name='name' onChange={onChange}  type='text'></input> <br/>
-              취미 : <input name='hobby' onChange={onChange}  type='text'></input> <br/>
-              생일 : <input name='birthday' onChange={onChange}  type='date'></input> <br/>
+              번호 : <input name='num' onChange={onChange} type='text'></input> <br/>
+              이름 : <input name='name' onChange={onChange} type='text'></input> <br/>
+              취미 : <input name='hobby' onChange={onChange} type='text'></input> <br/>
+              생일 : <input name='birthday' onChange={onChange} type='date'></input> <br/>
               <button onClick={()=>{
                 let copy = [...friend]
                 copy.push(inputs);
