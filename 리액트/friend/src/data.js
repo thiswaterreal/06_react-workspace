@@ -1,4 +1,4 @@
-let data = [
+let data1 = [
     {
         num : 1,
         name : '이수진',
@@ -19,4 +19,4 @@ let data = [
     }
 ]
 
-export default data;
+export default data1;

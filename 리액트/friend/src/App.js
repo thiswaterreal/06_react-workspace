@@ -1,88 +1,71 @@
-import logo from './logo.svg';
 import './App.css';
 
-import data from './data.js';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import data1 from './data.js';
 
+import FriendEditor from './FriendEditor';
+import FriendList from './FriendList';
 
 function App() {
 
-  let [friend, setFriend] = useState(data);
-  let [inputs, setInputs] = useState({
-    num: '',
-    name: '',
-    hobby: '',
-    birthday: ''
-  });
+  let navigate = useNavigate();
 
-  let onChange = (e) => {
-    let { value, name } = e.target; 
-    setInputs({
-      ...inputs, 
-      [name]: value 
-    });
-  };
+  const [data, setData] = useState(data1);
 
-  let navagate = useNavigate();
+  const dataNum = useRef(4); // 기존 3명있으니까
 
+  const onCreate = (name, hobby, birthday)=>{
+    const newItem = {
+      name,
+      hobby,
+      birthday,
+      num : dataNum.current
+    }
+    dataNum.current += 1;
+    setData([...data, newItem]) // 새로운데이터 + 기존데이터
+    navigate("/"); // 추가하고 메인으로 가기
+  }
+
+  const onDelete = (targetNum)=>{
+    console.log(`${targetNum}가 삭제됐습니다.`);
+    const newFriendList = data.filter((it)=> it.num !== targetNum);
+    setData(newFriendList);
+  }
+
+
+  data.sort((a, b) => a.num - b.num); // 숫자정렬
+
+  
   return (
     <div className="App">
       <>
-
+      <h2>내짝꿍</h2>
+      <Link to="/plus">친구추가하기</Link>/
+              <Link to="/">메인으로 가기</Link>
         <Routes>
           <Route path="/" element={
             <>
-              <h2>내짝꿍</h2>
-              <Link to="/plus">친구추가하기</Link>/
-              <Link to="/">메인으로 가기</Link>
-              <table style={{margin:'auto'}}>
-                <tr>
-                  <th width="80">번호</th>
-                  <th width="80">이름</th>
-                  <th width="80">취미</th>
-                  <th width="100">생일</th>
-                  <th width="80">기타</th>
-                </tr>
+              
+              
+             
 
-                {/* <tr>
-                  <td>3</td>
-                  <td>이수진</td>
-                  <td>밥먹기</td>
-                  <td>2000-01-01</td>
-                  <td><button>삭제</button></td>
-                </tr> */}
-
-                {
-                  friend.map((a, i)=>{
-                    return(
-                      <Card friend={friend} i={i} setFriend={setFriend}/>
-                    )
-                  })
-                }
-
-              </table>
+             
+                <FriendList friendList={data} onDelete={onDelete}></FriendList>
+            
             </>
           }>
           </Route>
 
           <Route path="/plus" element={
             <>
-              <h2>내짝꿍</h2>
-              <Link to="/plus">친구추가하기</Link>/
-              <Link to="/">메인으로 가기</Link>
+              
+              
               <div>친구추가</div>
-              번호 : <input name='num' onChange={onChange} type='text'></input> <br/>
-              이름 : <input name='name' onChange={onChange} type='text'></input> <br/>
-              취미 : <input name='hobby' onChange={onChange} type='text'></input> <br/>
-              생일 : <input name='birthday' onChange={onChange} type='date'></input> <br/>
-              <button onClick={()=>{
-                let copy = [...friend]
-                copy.push(inputs);
-                setFriend(copy);
+              
+              <FriendEditor onCreate={onCreate}></FriendEditor>
+             
 
-                navagate('/');
-              }}>추가</button>
             </>
           }>
           </Route>
@@ -92,27 +75,6 @@ function App() {
     </div>
   );
 }
-
-// 컴포넌트
-function Card(props) {
-  return(
-    <tr>
-      <td>{props.friend[props.i].num}</td>
-      <td>{props.friend[props.i].name}</td>
-      <td>{props.friend[props.i].hobby}</td>
-      <td>{props.friend[props.i].birthday}</td>
-      <td>
-        <button onClick={()=>{
-        let copy = [...props.friend];
-        copy.splice(props.i, 1);
-        props.setFriend(copy);
-        }}>삭제</button>
-      </td>
-    </tr>
-  )
-}
-
-
 
 
 export default App;
