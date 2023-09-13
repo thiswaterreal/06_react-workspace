@@ -33,39 +33,25 @@ function App() {
     setData(newFriendList);
   }
 
-
-  data.sort((a, b) => a.num - b.num); // 숫자정렬
-
+  //data.sort((a, b) => a.num - b.num); // 숫자정렬
   
   return (
     <div className="App">
       <>
-      <h2>내짝꿍</h2>
-      <Link to="/plus">친구추가하기</Link>/
-              <Link to="/">메인으로 가기</Link>
+        <h2>내짝꿍</h2>
+        <Link to="/plus">친구추가하기</Link>/
+        <Link to="/">메인으로 가기</Link>
+
         <Routes>
           <Route path="/" element={
-            <>
-              
-              
-             
-
-             
                 <FriendList friendList={data} onDelete={onDelete}></FriendList>
-            
-            </>
           }>
           </Route>
 
           <Route path="/plus" element={
             <>
-              
-              
               <div>친구추가</div>
-              
               <FriendEditor onCreate={onCreate}></FriendEditor>
-             
-
             </>
           }>
           </Route>
