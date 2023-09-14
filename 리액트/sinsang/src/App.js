@@ -9,7 +9,7 @@ import ProductEditor from './ProductEditor';
 
 function App() {
 
-  let [sinsang] = useState(data);
+  let [product] = useState(data);
   
 
   return (
