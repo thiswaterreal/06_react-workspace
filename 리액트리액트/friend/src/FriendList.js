@@ -1,7 +1,7 @@
 
 import FriendItem from "./FriendItem";
 
-const FriendList = ({friendList, onDelete})=>{
+const FriendList = ({friendList, onDelete, onEdit})=>{
     return(
         <div className="FriendList">
             <table>
@@ -17,7 +17,7 @@ const FriendList = ({friendList, onDelete})=>{
                     friendList.map((it, idx)=>{
                         return(
 
-                            <FriendItem key={it.id} {...it} onDelete={onDelete}/>
+                            <FriendItem key={it.id} {...it} onDelete={onDelete} onEdit={onEdit}/>
                             
                         )
                     })

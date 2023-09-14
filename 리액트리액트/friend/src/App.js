@@ -32,6 +32,17 @@ function App() {
     navigate("/list");
   }
 
+  const onEdit = (targetId, newName, newHobby, newBirth) => {
+    setData((prevData) =>
+      prevData.map((it) =>
+        it.id === targetId
+          ? { ...it, name: newName, hobby: newHobby, birth: newBirth }
+          : it
+      )
+    );
+  };
+
+
   return (
     <div className="App">
       
@@ -40,7 +51,7 @@ function App() {
       <Link to="/list">리스트보기</Link>
 
       <Routes>
-        <Route path="/" element={<div>홈화면이지요</div>}/>
+        <Route path="/" element={<h2>홈화면이지요</h2>}/>
         <Route path="/regist" element={
           <>
             <div>등록하기</div>
@@ -50,7 +61,7 @@ function App() {
         <Route path="/list" element={
           <>
             <div>리스트보기</div>
-            <FriendList friendList={data} onDelete={onDelete}/>
+            <FriendList friendList={data} onDelete={onDelete} onEdit={onEdit}/>
           </>
         }/>
       </Routes>
