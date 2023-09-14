@@ -1,6 +1,6 @@
 
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './App.css';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import dataDummy from './data';
 import FriendList from './FriendList';
@@ -12,20 +12,20 @@ function App() {
 
   const [data, setData] = useState(dataDummy);
 
-  const onDelete = (targetId)=>{
-    console.log(`${targetId}가 삭제됐습니다.`);
-    const newFriendList = data.filter((it)=> it.id !== targetId);
+  const onDelete = (targetId)=>{ //onDelete 함수는 targetId라는 매개변수를 받음. targetId : 삭제하려는 항목의 고유 식별자
+    //console.log(`${targetId}가 삭제됐습니다.`);
+    const newFriendList = data.filter((it)=> it.id !== targetId); // it : 메소드 내에서 현재 반복 중인 객체요소를 가리키는 변수
     setData(newFriendList);
   }
 
-  const dataId = useRef(4); //기존데이터3개있으니까
+  const dataId = useRef(4); //기존 데이터 3개 있으니까
 
   const onCreate = (name, hobby, birth)=>{
     const newItem = {
       name,
       hobby,
       birth,
-      id : dataId.current
+      id : dataId.current,
     }
     dataId.current += 1
     setData([...data, newItem])

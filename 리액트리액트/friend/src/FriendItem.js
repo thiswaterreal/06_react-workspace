@@ -3,10 +3,11 @@ import { useState } from "react";
 const FriendItem = ({id, name, hobby, birth, onDelete, onEdit})=>{
     
     const [isEdit, setIsEdit] = useState(false);
-    const toggleIsEdit = ()=>{setIsEdit(!isEdit)}
     const [localName, setLocalName] = useState(name);
     const [localHobby, setLocalHobby] = useState(hobby);
     const [localBirth, setLocalBirth] = useState(birth);
+    
+    const toggleIsEdit = ()=>{setIsEdit(!isEdit)}
 
     const handleRemove = ()=>{
         if(window.confirm(`${id}번째 친구를 정말 삭제하시겠습니까?`)){
@@ -30,6 +31,18 @@ const FriendItem = ({id, name, hobby, birth, onDelete, onEdit})=>{
     }
 
     return(
+
+        // <tr>
+        //     <td>{id}</td>
+        //     <td>{name}</td>
+        //     <td>{hobby}</td>
+        //     <td>{birth}</td>
+        //     <td>
+        //         <button onClick={()=>{handleRemove}}>삭제</button>
+        //     </td>
+        // </tr>
+
+
        <tr>
             <td>{id}</td>
             <td>

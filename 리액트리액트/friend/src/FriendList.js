@@ -17,7 +17,7 @@ const FriendList = ({friendList, onDelete, onEdit})=>{
                     friendList.map((it, idx)=>{
                         return(
 
-                            <FriendItem key={it.id} {...it} onDelete={onDelete} onEdit={onEdit}/>
+                            <FriendItem key={it.id} {...it} onDelete={onDelete} onEdit={onEdit}/> // key : 목록 렌더링할때 각 객체요소들 식별할 수 있도록 key값 제공해야함!!
                             
                         )
                     })

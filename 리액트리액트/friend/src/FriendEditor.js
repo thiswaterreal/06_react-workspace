@@ -20,7 +20,7 @@ const FriendEditor = ({onCreate})=>{
     }
 
     const handleSubmit = ()=>{
-        console.log(state);
+        //console.log(state);
         onCreate(state.name, state.hobby, state.birth);
         alert("새로운 친구 성공!!");
         setState({
