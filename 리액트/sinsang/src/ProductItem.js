@@ -1,23 +1,31 @@
 import { useState } from 'react';
 import { Navbar, Nav, Container, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 
-const ProductItem = ({brand, name, price, img, idx})=>{
+const ProductItem = ({brand, name, price, img, id, onRemove})=>{
 
-    let [따봉, 따봉변경] = useState([0,0,0,0]);
+    const [count, setCount] = useState(0);
+
+    const handleRemove = ()=>{
+        if(window.confirm(`${id}번째 상품을 정말 삭제하시겠습니까?`)){
+            onRemove(id);
+        }
+    }
+
+    const like = ()=>{
+        setCount(count + 1);
+    }
+ 
     return(
-        <Col sm>
+        <Col sm={3}>
             <img src={img} width="80%"/>
-            <p>{brand}</p>
+            <p style={{color:"yellowgreen", fontWeight:"bold"}}>{brand}</p>
             <h4>{name}</h4>
+            <span onClick={like}>😋: </span>{count}
             <p>{price}원</p>
-            <span onClick={(e)=>{
-                e.stopPropagation();
-                let copy = [...따봉];
-                copy[idx] = copy[idx] + 1;
-                따봉변경(copy);
-            }}>😋</span> {따봉[idx]}
+            <button onClick={handleRemove}>상품삭제</button>
         </Col>
     )
+   
 }
 
 export default ProductItem;

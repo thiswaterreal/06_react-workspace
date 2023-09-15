@@ -9,7 +9,7 @@ let dataDummy = [
     {
         id:2,
         name:"이문찬",
-        hobby:"잠자기",
+        hobby:"반찬투정하기",
         birth:"1959-12-21",
     },
     {

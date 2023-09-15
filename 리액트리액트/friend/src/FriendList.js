@@ -8,7 +8,7 @@ const FriendList = ({friendList, onDelete, onEdit})=>{
                 <tr>
                     <th width="80">번호</th>
                     <th width="80">이름</th>
-                    <th width="80">취미</th>
+                    <th width="100">취미</th>
                     <th width="100">생일</th>
                     <th width="80">기타</th>
                 </tr>

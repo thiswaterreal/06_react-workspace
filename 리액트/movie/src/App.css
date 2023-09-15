@@ -2,21 +2,6 @@
   text-align: center;
 }
 
-
-.main-bg {
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 1200px;
-  height: 300px;
-  background-image: url('./img/mainphoto.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -52,13 +37,15 @@
   }
 }
 
-
-
-.ProductEditor h2{
-  margin-top: 20px;
-  margin-bottom: 20px;
+.MovieList table {
+  margin: auto;
 }
 
-button {
-  border: 1px solid lightgray;
+.list {
+  text-align: left;
 }
+
+.add {
+  text-align: right;
+}
+

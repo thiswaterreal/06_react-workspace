@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import ProductItem from './ProductItem';
 
-const ProductList = ({ productList })=>{
+const ProductList = ({ productList, onRemove })=>{
     return(
         <div className="ProductList">
             
@@ -14,7 +14,7 @@ const ProductList = ({ productList })=>{
 
                         return(
                             // idx 어카누.....
-                            <ProductItem key={it.id} {...it} {...idx} />
+                            <ProductItem key={it.id} {...it} onRemove={onRemove}/>
                             
                         )
 
