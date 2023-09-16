@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useState, useParams } from 'react';
 import { Navbar, Nav, Container, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import ProductDetail from './ProductDetail';
 
 const ProductItem = ({brand, name, price, img, id, onRemove})=>{
+
+   
 
     const [count, setCount] = useState(0);
 
@@ -22,8 +26,11 @@ const ProductItem = ({brand, name, price, img, id, onRemove})=>{
             <h4>{name}</h4>
             <span onClick={like}>😋: </span>{count}
             <p>{price}원</p>
-            <button onClick={handleRemove}>상품삭제</button>
+            {/* <button onClick={handleRemove}>상품삭제</button> */}
+            {/* <Link to="/detail/:id">자세히</Link> */}
+            <Link className='detailLink' to={`/detail/${id}`}>자세히&gt;&gt;</Link>
         </Col>
+
     )
    
 }

@@ -6,6 +6,7 @@ import data1 from './data.js';
 import { useRef, useState } from 'react';
 import ProductList from './ProductList';
 import ProductEditor from './ProductEditor';
+import ProductDetail from './ProductDetail';
 
 function App() {
 
@@ -78,6 +79,12 @@ function App() {
             <ProductList productList={data} onRemove={onRemove}/>
           </>
         }/>
+
+        <Route path="/detail/:id" element={
+          <>
+            <ProductDetail data={data} onRemove={onRemove}/>
+          </>
+        } />
       </Routes>
 
       </>

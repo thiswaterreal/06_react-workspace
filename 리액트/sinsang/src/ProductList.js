@@ -13,7 +13,7 @@ const ProductList = ({ productList, onRemove })=>{
                     productList.map((it, idx)=>{
 
                         return(
-                            // idx 어카누.....
+                          
                             <ProductItem key={it.id} {...it} onRemove={onRemove}/>
                             
                         )

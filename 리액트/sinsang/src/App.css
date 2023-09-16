@@ -62,3 +62,20 @@
 button {
   border: 1px solid lightgray;
 }
+
+
+.detailLink{
+  background-color: #eee;
+  color: gray;
+  text-decoration: none;
+  border: 10px solid #eee;
+}
+
+.ProductDetail table {
+  margin: auto;
+ 
+}
+
+.ProductDetail .tr1 {
+  border: 1px solid lightgray;
+}
