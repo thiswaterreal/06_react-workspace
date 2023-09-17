@@ -36,9 +36,8 @@ const ProductEditor = ({onCreate})=>{
 
     return(
         <div className="ProductEditor">
-            <h2>신상품 등록란</h2>
             <div>
-                <input
+                <input style={{width:"400px", height:"45px"}}
                     placeholder="상품 제조 회사"
                     name="brand"
                     value={state.brand}
@@ -46,7 +45,7 @@ const ProductEditor = ({onCreate})=>{
                 />
             </div>
             <div>
-                <input
+                <input style={{width:"400px", height:"45px"}}
                     placeholder="상품명"
                     name="name"
                     value={state.name}
@@ -54,7 +53,7 @@ const ProductEditor = ({onCreate})=>{
                 />
             </div>
             <div>
-                <input
+                <input style={{width:"400px", height:"45px"}}
                     placeholder="상품가격"
                     name="price"
                     value={state.price}
@@ -62,7 +61,7 @@ const ProductEditor = ({onCreate})=>{
                 />
             </div>
             <div>
-                <input
+                <input style={{width:"400px", height:"45px"}}
                     placeholder="상품 이미지 주소"
                     name="img"
                     value={state.img}

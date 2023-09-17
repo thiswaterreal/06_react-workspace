@@ -20,15 +20,17 @@ const ProductItem = ({brand, name, price, img, id, onRemove})=>{
     }
  
     return(
-        <Col sm={3}>
-            <img src={img} width="80%"/>
-            <p style={{color:"yellowgreen", fontWeight:"bold"}}>{brand}</p>
-            <h4>{name}</h4>
-            <span onClick={like}>😋: </span>{count}
-            <p>{price}원</p>
-            {/* <button onClick={handleRemove}>상품삭제</button> */}
-            {/* <Link to="/detail/:id">자세히</Link> */}
-            <Link className='detailLink' to={`/detail/${id}`}>자세히&gt;&gt;</Link>
+        <Col sm={3} style={{width:"350px"}}>
+            <div style={{marginBottom:"20px"}}>
+                <img src={img} width="90%"/>
+                <p style={{color:"yellowgreen", fontWeight:"bold"}}>{brand}</p>
+                <h4>{name}</h4>
+                <span onClick={like}>😋: </span>{count}
+                <p>{price}원</p>
+                {/* <button onClick={handleRemove}>상품삭제</button> */}
+                {/* <Link to="/detail/:id">자세히</Link> */}
+                <Link className='detailLink' to={`/detail/${id}`}>자세히&gt;&gt;</Link>
+            </div>
         </Col>
 
     )
